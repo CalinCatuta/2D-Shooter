@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void InputManager() {
-
+        // We need to add Mass, Linear Drag and Angular Drag to the rb 2d for the Objects to stop the pushing problem.
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
