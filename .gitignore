@@ -20,6 +20,16 @@
 *.opendb
 *.VC.db
 
+# Ignore Visual Studio files
+.vs/
+
+# Keep Packages and ProjectSettings
+!Packages/
+!ProjectSettings/
+
+# Ignore User-specific settings
+UserSettings/
+
 # Unity auto-generated metadata files
 *.pidb.meta
 *.pdb.meta
