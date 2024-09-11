@@ -36,7 +36,7 @@ public class MeleEnemy : MonoBehaviour, IDamageable {
     }
     public void TakeDamage(float dmg) {
         health -= dmg;
-
+        Debug.Log("Hit");
         if (health < 0) {
             Kill();
         }
