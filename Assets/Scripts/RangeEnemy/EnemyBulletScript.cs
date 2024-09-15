@@ -25,6 +25,7 @@ public class EnemyBulletScript : MonoBehaviour {
         {
             PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
             player.TakeDamage(damage); //Make sure to use currentDamage instead of weaponData.damage in case any damage multipliers in the future.
+            Destroy(gameObject);
         }
     }
 }

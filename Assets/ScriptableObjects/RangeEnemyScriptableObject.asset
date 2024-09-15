@@ -16,3 +16,5 @@ MonoBehaviour:
   moveSpeed: 3
   shootRange: 6
   shootInterval: 2
+  retreatDistance: 3
+  stopDistance: 5

@@ -14,5 +14,11 @@ public class RangeEnemyScriptableObject : ScriptableObject {
     [SerializeField]
     public float shootInterval;
     public float ShootInterval { get => shootInterval; private set => shootInterval = value; }
+    [SerializeField]
+    public float retreatDistance;
+    public float RetreatDistance { get => retreatDistance; private set => retreatDistance = value; }
+    [SerializeField]
+    public float stopDistance;
+    public float StopDistance { get => stopDistance; private set => stopDistance = value; }
 
 }
