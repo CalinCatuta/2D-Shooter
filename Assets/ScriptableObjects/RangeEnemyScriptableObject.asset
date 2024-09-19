@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RangeEnemyScriptableObject
   m_EditorClassIdentifier: 
   maxHealth: 3
-  moveSpeed: 3
-  shootRange: 6
+  moveSpeed: 4
+  shootRange: 8
   shootInterval: 2
-  retreatDistance: 3
-  stopDistance: 5
+  retreatDistance: 5
+  stopDistance: 6

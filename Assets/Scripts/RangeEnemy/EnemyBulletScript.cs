@@ -1,30 +1,33 @@
 using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour {
-    public float speed = 5f;
-    private float damage = 2f;
-    private Vector2 target;
+    [HideInInspector]
+    public float speed = 14f;
+    [HideInInspector]
+    public float lifeTime = 2f;
+    [HideInInspector]
+    public float currentDamage = 2f;
 
-    public void SetTarget(Vector2 targetPosition) {
-        target = targetPosition;
-        Destroy(gameObject, 2f); // Destroy bullet after 5 seconds if it doesn't hit anything.
+    private Vector3 direction;
+
+    public void SetTarget(Vector3 target) {
+        // Calculate the direction to move the projectile in
+        direction = (target - transform.position).normalized;
+        Destroy(gameObject, lifeTime);  // Destroy the projectile after its lifetime
     }
 
-    private void Update() {
-        // Move bullet towards the target
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        // Optionally, add collision detection with player or environment here
+    void Update() {
+        // Move in the calculated direction
+        transform.position += direction * speed * Time.deltaTime;
     }
 
-    //  Collisions involve a physical impact, meaning the objects will bounce off each other or otherwise react based on their physics properties.
-    // Collisions is used for physical logic like Hitting.
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         // Reference the script from the collided collider and deal damage using TakeDamage().
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Hit");
             PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
-            player.TakeDamage(damage); //Make sure to use currentDamage instead of weaponData.damage in case any damage multipliers in the future.
+            player.TakeDamage(currentDamage); //Make sure to use currentDamage instead of weaponData.damage in case any damage multipliers in the future.
             Destroy(gameObject);
         }
     }
